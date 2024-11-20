@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagar - Loja de Eletrônicos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Finalizar Compra</h1>
+    </header>
+    
+    <main>
+        <section id="order-summary">
+            <h2>Resumo do Pedido</h2>
+            <ul id="order-items"></ul>
+            <p id="total-price-summary">Total: R$ 0,00</p>
+            <button id="payment-btn">Pagar</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Loja de Eletrônicos</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Passa os itens do carrinho para a página de pagamento
+        document.addEventListener("DOMContentLoaded", () => {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const orderItemsList = document.getElementById('order-items');
+            const totalPriceElement = document.getElementById('total-price-summary');
+            let total = 0;
+
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - R$ ${item.price.toFixed(2)}`;
+                orderItemsList.appendChild(li);
+                total += item.price;
+            });
+
+            totalPriceElement.textContent = `Total: R$ ${total.toFixed(2)}`;
+
+            // Quando o botão de pagamento é clicado, chama a API de pagamento
+            document.getElementById('payment-btn').addEventListener('click', async () => {
+                const paymentSuccess = await mockPaymentApi(cart);
+                if (paymentSuccess) {
+                    alert('Pagamento efetuado com sucesso!');
+                    localStorage.removeItem('cart');
+                    window.location.href = '/';
+                } else {
+                    alert('Erro no pagamento. Tente novamente.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce de Eletrônicos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Loja de Eletrônicos</h1>
+        <div id="cart">
+            <span id="cart-count">0</span> itens no carrinho
+        </div>
+    </header>
+    
+    <main>
+        <section id="product-list">
+            <!-- Produto 1 -->
+            <div class="product" style="background-image: url('https://animaldeestimacao.com.br/wp-content/uploads/2023/01/Sphynx-jpg.webp');">
+                <div class="product-info">
+                    <h3>Smartphone XYZ</h3>
+                    <p>R$ 1.599,99</p>
+                    <button class="add-to-cart" data-product="Smartphone XYZ" data-price="1599.99">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 2 -->
+            <div class="product" style="background-image: url('https://a-static.mlcdn.com.br/800x560/smart-tv-samsung-58-uhd-4k-58cu7700-2023-processador-crystal-4k-gaming-hub-tela-sem-limites/samsung/4493/9f576864771c89a8b27242c5114c0392.jpeg');">
+                <div class="product-info">
+                    <h3>Notebook ABC</h3>
+                    <p>R$ 3.299,99</p>
+                    <button class="add-to-cart" data-product="Notebook ABC" data-price="3299.99">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 3 -->
+            <div class="product" style="background-image: url('https://a-static.mlcdn.com.br/800x560/smart-tv-samsung-58-uhd-4k-58cu7700-2023-processador-crystal-4k-gaming-hub-tela-sem-limites/samsung/4493/9f576864771c89a8b27242c5114c0392.jpeg');">
+                <div class="product-info">
+                    <h3>Fone de Ouvido XYZ</h3>
+                    <p>R$ 499,99</p>
+                    <button class="add-to-cart" data-product="Fone de Ouvido XYZ" data-price="499.99">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 4 -->
+            <div class="product" style="background-image: url('https://a-static.mlcdn.com.br/800x560/smartphone-samsung-galaxy-a05s-67-128gb-preto-6gb-ram-cam-tripla-50mp-selfie-8mp-bateria-5000mah-dual-chip/magazineluiza/237216700/c5d3f4a35266582bf302c76f566a71e2.jpg');">
+                <div class="product-info">
+                    <h3>Tablet ABC</h3>
+                    <p>R$ 1.299,99</p>
+                    <button class="add-to-cart" data-product="Tablet ABC" data-price="1299.99">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- Produto 5 -->
+            <div class="product" style="background-image: url('https://a-static.mlcdn.com.br/800x560/apple-watch-series-9-gps-cellular-caixa-estelar-de-aluminio-45mm-pulseira-esportiva-estelar-m-g/magazineluiza/237937500/9042d4611c57d5ae94b01c2a01abfcf9.jpg');">
+                <div class="product-info">
+                    <h3>Smartwatch 360</h3>
+                    <p>R$ 799,99</p>
+                    <button class="add-to-cart" data-product="Smartwatch 360" data-price="799.99">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="cart-details">
+            <h2>Carrinho</h2>
+            <ul id="cart-items"></ul>
+            <p id="total-price">Total: R$ 0,00</p>
+            <button id="checkout-btn" disabled onclick="window.location.href='payment.html'">Finalizar Compra</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Loja de Eletrônicos</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script src="api/mock_payment.js"></script>
+</body>
+</html>
